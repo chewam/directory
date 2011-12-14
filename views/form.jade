@@ -1,0 +1,28 @@
+div.row.well
+    div.span8(style="text-align: center")
+        h2 TROUVEZ DES #{title.toUpperCase()}
+        a(href="#")
+            img(src="/images/france_150.png", width="150px", height="150px")
+
+    div.span7
+        form(action="", method="POST", style="position: relative; top: 20px;")
+            // fieldset
+            //     legend Recherchez par département, ville ou code postal...
+            div.clearfix
+                label(for="state") Département
+                div.input
+                    input#state.span4(type="text", name="state")
+
+            div.clearfix
+                label(for="zipcode") Code Postal ou Ville
+                div.input
+                    input#zipcode.span2(type="text", name="zipcode")
+
+            div.clearfix
+                label(for="name") Nom
+                div.input
+                    input#name.span4(type="text", name="name")
+
+
+            div.actions
+                button.btn.primary(type="submit") RECHERCHER
