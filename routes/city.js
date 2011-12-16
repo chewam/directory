@@ -14,7 +14,6 @@ module.exports = function(req, res) {
 
     query.exec(function(error, docs) {
         docs = docs || [];
-        console.log("DOCS", error, docs);
         mongoose.model('Item').find(condition).count(function(error, count) {
             res.render('city', {
                 items: docs,
