@@ -8,11 +8,11 @@
   - `$ node ./models/count.js` to count tables entries  
 
 # ROUTES
-  - `./departements.html` list all states (with item count)
-  - `./departement/:location.html` list items for a state (ex: ./departement/AIN.html)
-  - `./departement/:location,:code.html` list items for a state (ex: ./departement/AIN,01.html)
-  - `./departement/:location,:code,:page.html` list items for a state with paging (ex: ./departement/AIN,01,2.html)
 
+  - `./departements.html` list all states (with item count)
+  - `./departement/:location.html` list items for a state _(ex: ./departement/AIN.html)_
+  - `./departement/:location,:code.html` list items for a state _(ex: ./departement/AIN,01.html)_
+  - `./departement/:location,:code,:page.html` list items for a state with paging (ex: ./departement/AIN,01,2.html)
   - `./villes.html` list all cities (with item count)
   - `./ville/:location.html` list items for a city (ex: ./departement/PARIS.html)
   - `./ville/:location,:code.html` list items for a city (ex: ./departement/PARIS,75020.html)
