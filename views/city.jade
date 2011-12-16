@@ -1,0 +1,66 @@
+h1= title
+h3 Bienvenue sur #{title}, trouvez les #{title.toLowerCase()} près de chez vous !
+
+include form
+
+div.row
+
+    div.span9
+
+        div.pagination
+            ul
+                - var startPage = currentPage - 2 > 0 ? pageCount - currentPage + 2 > pageSize ? currentPage - 2 : currentPage - 4 : 1
+                - var endPage = startPage + pageSize > pageCount ? pageCount : startPage + pageSize
+                - if (currentPage - 1 > 2)
+                    li.prev: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(currentPage-1)+".html") &larr; Précédent
+                - else
+                    li.prev.disabled: a &larr; Précédent
+                - for (var i = startPage; i < endPage; i++)
+                    - if (i == currentPage)
+                        li.active: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
+                    - else
+                        li: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
+                - if (currentPage + 1 < pageCount)
+                    li.next: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(1 + currentPage)+".html") Suivant &rarr;
+                - else
+                    li.next.disabled: a Suivant &rarr;
+    
+        - var item;
+        - for (var i = 0; i < count; i++)
+            - item = items[i]
+            div.well
+                div.row
+
+                    div.span2
+                        div.media-grid
+                            a(href="#", style="margin-bottom: 0;")
+                                img.thumbnail(src="http://placehold.it/90x90", alt="", height="90px", width="90px")
+
+                    div.span6
+                        h3: a(href="#") #{item.name}
+                        div #{item.address}
+                        div
+                            a(href="#") #{item.city} 
+                            |(
+                            a(href="#") #{item.citycode}
+                            | &nbsp;)
+
+        div.pagination
+            ul
+                - var startPage = currentPage - 2 > 0 ? pageCount - currentPage + 2 > pageSize ? currentPage - 2 : currentPage - 4 : 1
+                - var endPage = startPage + pageSize > pageCount ? pageCount : startPage + pageSize
+                - if (currentPage - 1 > 2)
+                    li.prev: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(currentPage-1)+".html") &larr; Précédent
+                - else
+                    li.prev.disabled: a &larr; Précédent
+                - for (var i = startPage; i < endPage; i++)
+                    - if (i == currentPage)
+                        li.active: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
+                    - else
+                        li: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
+                - if (currentPage + 1 < pageCount)
+                    li.next: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(1 + currentPage)+".html") Suivant &rarr;
+                - else
+                    li.next.disabled: a Suivant &rarr;
+
+    div.span7

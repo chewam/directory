@@ -32,7 +32,12 @@ app.configure('production', function() {
 app.get('/', routes.index);
 app.get('/concessionnaires/villes.html', routes.cities);
 app.get('/concessionnaires/departements.html', routes.states);
-app.get('/concessionnaires/departement/:state,:zip.html', routes.state);
+app.get('/concessionnaires/ville/:location,:code,:page.html', routes.city);
+app.get('/concessionnaires/ville/:location,:code.html', routes.city);
+app.get('/concessionnaires/ville/:location.html', routes.city);
+app.get('/concessionnaires/departement/:location,:code,:page.html', routes.state);
+app.get('/concessionnaires/departement/:location,:code.html', routes.state);
+app.get('/concessionnaires/departement/:location.html', routes.state);
 
 app.listen(3001);
 

@@ -9,12 +9,14 @@ div.row
         ul
             - for (var i = 0, l = (count / 2); i < l; i++)
                 li
-                    a(href="#") #{items[i].statecode} #{items[i].state/*.toUpperCase()*/} 
+                    a(href="http://localhost:3001/concessionnaires/departement/"+items[i].state+","+items[i].statecode+".html")
+                        | #{items[i].statecode} #{items[i].state} 
                     | #{items[i].count} #{title.toLowerCase()} trouvés
 
     div.span8
         ul
             - for (; i < count; i++)
                 li
-                    a(href="#") #{items[i].statecode} #{items[i].state/*.toUpperCase()*/} 
+                    a(href="http://localhost:3001/concessionnaires/departement/"+items[i].state+","+items[i].statecode+".html")
+                        | #{items[i].statecode} #{items[i].state} 
                     | #{items[i].count} #{title.toLowerCase()} trouvés

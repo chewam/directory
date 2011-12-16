@@ -9,12 +9,14 @@ div.row
         ul
             - for (var i = 0, l = (count / 2); i < l; i++)
                 li
-                    a(href="#") #{items[i].city.toUpperCase()} 
+                    a(href="http://localhost:3001/concessionnaires/ville/"+items[i].city+".html")
+                        | #{items[i].city.toUpperCase()} 
                     | #{items[i].count} #{title.toLowerCase()} trouvés
 
     div.span8
         ul
             - for (; i < count; i++)
                 li
-                    a(href="#") #{items[i].city.toUpperCase()} 
+                    a(href="http://localhost:3001/concessionnaires/ville/"+items[i].city+".html")
+                        | #{items[i].city.toUpperCase()} 
                     | #{items[i].count} #{title.toLowerCase()} trouvés

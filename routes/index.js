@@ -7,11 +7,7 @@ exports.index = function(req, res) {
     });
 };
 
+exports.city = require('./city');
+exports.state = require('./state');
 exports.cities = require('./cities');
 exports.states = require('./states');
-
-exports.state = function(req, res) {
-    res.render('index', {
-        title: 'Recherche ' + req.params.state + ' ' + req.params.zip
-    });
-};

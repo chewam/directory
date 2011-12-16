@@ -4,9 +4,9 @@ mongoose.connect('mongodb://127.0.0.1/directory');
 
 
 var cityStatSchema = new mongoose.Schema({
-    zipcode: String,
-    city: String,
-    state: String,
+    citycode: String,
+    city: {type: String, uppercase: true},
+    state: {type: String, uppercase: true},
     statecode: String,
     count: {type: Number, default: 0}
 });
@@ -15,9 +15,9 @@ var CityStat = mongoose.model('CityStat', cityStatSchema);
 
 
 var stateStatSchema = new mongoose.Schema({
-    zipcode: String,
-    city: String,
-    state: String,
+    citycode: String,
+    city: {type: String, uppercase: true},
+    state: {type: String, uppercase: true},
     statecode: String,
     count: {type: Number, default: 0}
 });
@@ -27,9 +27,10 @@ var StateStat = mongoose.model('StateStat', stateStatSchema);
 
 var itemSchema = new mongoose.Schema({
     name: String,
-    zip: String,
-    city: String,
-    state: String,
+    city: {type: String, uppercase: true},
+    citycode: String,
+    state: {type: String, uppercase: true},
+    statecode: String,
     address: String,
     lat: Number,
     lng: Number,
@@ -50,13 +51,14 @@ Db.prototype.dropTables = function(cb) {
 
     var callback = function() {
         count++;
-        if (count === 2) {
+        if (count === 3) {
             cb.apply(this, arguments);
         }
     };
 
     (new Item()).collection.drop(callback);
     (new CityStat()).collection.drop(callback);
+    (new StateStat()).collection.drop(callback);
 };
 
 Db.prototype.populate = function(cb) {
