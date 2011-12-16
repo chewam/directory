@@ -3,6 +3,14 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/directory');
 
 
+var mapSchema = new mongoose.Schema({
+    path: String,
+    statecode: String,
+    position: {top: Number, left: Number}
+});
+
+var Map = mongoose.model('Map', mapSchema);
+
 var cityStatSchema = new mongoose.Schema({
     citycode: String,
     city: {type: String, uppercase: true},
@@ -154,6 +162,22 @@ Db.prototype.count = function(cb) {
     Item.count(callback('Item'));
     CityStat.count(callback('CityStat'));
     StateStat.count(callback('StateStat'));
+};
+
+Db.prototype.map = function(data, cb) {
+    var l = data.length,
+        count = 0;
+
+    var callback = function() {
+        count++;
+        if (count === l) {
+            cb.apply(this, arguments);
+        }
+    };
+
+    for (var i = 0; i < l; i++) {
+        (new Map(data[i])).save(callback);
+    }
 };
 
 module.exports = new Db();

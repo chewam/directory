@@ -1,40 +1,51 @@
 !!!
 html
-  head
-    title= title
+    head
+        title= title
 
-    link(rel='stylesheet', href='http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
 
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
-    script(src='http://cloud.github.com/downloads/SteveSanderson/knockout/jquery.tmpl.min.js')
-    script(src='http://cloud.github.com/downloads/SteveSanderson/knockout/knockout-1.2.1.js')
-    script(src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js')
-    script(src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-buttons.js')
-    script(src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js')
-    script(src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js")
-    script(src="/javascripts/index.js")
+        script(charset="utf-8", src='/javascripts/raphael-min.js')
+        script(charset="utf-8", src='/javascripts/map.js')
 
-  body
+        // script(charset="utf-8", src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+        // script(charset="utf-8", src='http://cloud.github.com/downloads/SteveSanderson/knockout/jquery.tmpl.min.js')
+        // script(charset="utf-8", src='http://cloud.github.com/downloads/SteveSanderson/knockout/knockout-1.2.1.js')
+        // script(charset="utf-8", src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js')
+        // script(charset="utf-8", src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-buttons.js')
+        // script(charset="utf-8", src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js')
+        // script(charset="utf-8", src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js")
+        // script(charset="utf-8", src="/javascripts/index.js")
+
+    body
   
-    div.topbar
-        div.topbar-inner
-            div.container
-                a.brand(href='/') #{title}
-                ul.nav
+        div.topbar
+            div.topbar-inner
+                div.container
+                    a.brand(href='/') #{title}
+                    ul.nav
 
-                ul.nav.secondary-nav
-                    li: span(style="display: block; padding: 10px 10px 11px;") recherche de #{title.toLowerCase()} par: 
-                    li: a(href="/concessionnaires/departements.html") DEPARTEMENT
-                    li: a(href="/concessionnaires/villes.html") VILLE / CODE POSTAL
-                    li: a(href="/") CARTE
+                    ul.nav.secondary-nav
+                        li: span(style="display: block; padding: 10px 10px 11px;") recherche de #{title.toLowerCase()} par: 
+                        li: a(href="/concessionnaires/departements.html") DEPARTEMENT
+                        li: a(href="/concessionnaires/villes.html") VILLE / CODE POSTAL
+                        li: a(href="/") CARTE
 
-    div.content
-        div.container.page
-            // h1 #{title}
-            != body                    
+        div.content
+            div.container.page
+                // h1 #{title}
+                // h1= title
+                h2 Bienvenue sur CONCESSIONNAIRES-AUTOMOBILE.FR
+                h4 Sur CONCESSIONNAIRES-AUTOMOBILE.FR trouvez les #{title.toLowerCase()} près de chez vous !
 
-        footer.footer
-            div.container
-                p Powered by 
-                    a(href='http://revolunet.com/') Revolunet
+                include form
+
+                != body
+
+            footer.footer
+                div.container
+                    p Powered by 
+                        a(href='http://revolunet.com/') Revolunet
+
+        include analytics

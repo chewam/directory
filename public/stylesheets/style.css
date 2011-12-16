@@ -1,0 +1,20 @@
+body {
+    padding-top: 60px;
+}
+
+#map-canvas {
+    left: -30px;
+    position: relative;
+    top: -10px;
+}
+
+form, .actions {
+    margin-bottom: 0;
+}
+
+button.search {
+    font-size: 28px;
+    left: -80px;
+    padding: 7px 30px 6px;
+    position: relative;
+}

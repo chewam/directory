@@ -1,26 +1,27 @@
-div.row.well
-    div.span8(style="text-align: center")
-        h2 TROUVEZ LES #{title.toUpperCase()} EN FRANCE
-        a(href="#")
-            img(src="/images/france_150.png", width="150px", height="150px")
-
-    div.span7
-        form(action="", method="POST", style="position: relative; top: 20px;")
-            div.clearfix
-                label(for="state") Département
-                div.input
-                    input#state.span4(type="text", name="state")
-
-            div.clearfix
-                label(for="zipcode") Code Postal ou Ville
-                div.input
-                    input#zipcode.span2(type="text", name="zipcode")
-
-            div.clearfix
-                label(for="name") Nom
-                div.input
-                    input#name.span4(type="text", name="name")
-
-
-            div.actions
-                button.btn.primary(type="submit") RECHERCHER
+div.well(style="margin-top: 20px")
+    div.row
+        div.span8(style="text-align: center")
+            h2 TROUVEZ LES #{title.toUpperCase()} EN FRANCE
+            a(href="/")
+                img(src="/images/france_150.png", width="150px", height="150px")
+        
+        div.span7
+            form(action="", method="POST", style="position: relative; top: 10px;")
+                div.clearfix
+                    label(for="state"): a(href="/concessionnaires/departements.html") Département
+                    div.input
+                        input#state.span4(type="text", name="state")
+        
+                div.clearfix
+                    label(for="zipcode"): a(href="/concessionnaires/villes.html") Code Postal ou Ville
+                    div.input
+                        input#zipcode.span2(type="text", name="zipcode")
+        
+                div.clearfix
+                    label(for="name") Nom
+                    div.input
+                        input#name.span4(type="text", name="name")
+        
+        
+                div.actions
+                    button.search.btn.primary(type="submit") RECHERCHER
