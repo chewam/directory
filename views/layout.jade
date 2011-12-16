@@ -22,10 +22,12 @@ html
             div.container
                 a.brand(href='/') #{title}
                 ul.nav
-                    li: a(href="/search") Search
 
                 ul.nav.secondary-nav
-                    li: a Welcome
+                    li: span(style="display: block; padding: 10px 10px 11px;") recherche de #{title.toLowerCase()} par: 
+                    li: a(href="/concessionnaires/departements.html") DEPARTEMENT
+                    li: a(href="/concessionnaires/villes.html") VILLE / CODE POSTAL
+                    li: a(href="/") CARTE
 
     div.content
         div.container.page

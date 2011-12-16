@@ -1,0 +1,20 @@
+h1= title
+h3 Bienvenue sur #{title}, trouvez les #{title.toLowerCase()} près de chez vous !
+
+include form
+
+div.row
+
+    div.span8
+        ul
+            - for (var i = 0, l = (count / 2); i < l; i++)
+                li
+                    a(href="#") #{items[i].city.toUpperCase()} 
+                    | #{items[i].count} #{title.toLowerCase()} trouvés
+
+    div.span8
+        ul
+            - for (; i < count; i++)
+                li
+                    a(href="#") #{items[i].city.toUpperCase()} 
+                    | #{items[i].count} #{title.toLowerCase()} trouvés
