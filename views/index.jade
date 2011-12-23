@@ -1,10 +1,11 @@
 div.row(style="padding-top: 20px")
-    div.span8
-        h2.page-header Selectionnez un département
+    div.span7
+        h3.page-header Recherche par département
         p Selectionnez un département sur la carte pour consulter la liste des #{title.toLowerCase()}.
         h1#map-message(style="min-height: 40px; font-size: 36px; padding: 30px 0; text-align: center;")
-        h2.page-header Les départements les plus visités
-        div.row
+        h3.page-header Les départements les plus recherchés
+        div.row(style="position:absolute")
+            
             div.span4
                 ul
                     - var count = items.length;
@@ -15,5 +16,5 @@ div.row(style="padding-top: 20px")
                     - for (; i < count; i++)
                         li: a(href="/concessionnaires/departement/"+items[i].state+".html") (#{items[i].statecode}) #{items[i].state}
 
-    div.span8
+    div.span9
         div#map-canvas

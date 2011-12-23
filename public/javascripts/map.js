@@ -7,7 +7,7 @@ window.onload = function() {
 
     if (el) {
 
-        paper = new Raphael(el, 600, 600);
+        paper = new Raphael(el, 500, 550);
 
         attr = {
             fill: "#f5f5f5",

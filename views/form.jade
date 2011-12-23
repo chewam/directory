@@ -1,4 +1,4 @@
-div.well(style="margin-top: 20px")
+div.well.form
     div.row
         div.span8(style="text-align: center")
             h2 TROUVEZ LES #{title.toUpperCase()} EN FRANCE
@@ -6,19 +6,19 @@ div.well(style="margin-top: 20px")
                 img(src="/images/france_150.png", width="150px", height="150px")
         
         div.span7
-            form(action="", method="POST", style="position: relative; top: 10px;")
+            form(action="", method="POST")
                 div.clearfix
                     label(for="state"): a(href="/concessionnaires/departements.html") Département
                     div.input
                         input#state.span4(type="text", name="state")
-        
+
                 div.clearfix
                     label(for="zipcode"): a(href="/concessionnaires/villes.html") Code Postal ou Ville
                     div.input
                         input#zipcode.span2(type="text", name="zipcode")
         
                 div.clearfix
-                    label(for="name") Nom
+                    label(for="name") Concessionnaire
                     div.input
                         input#name.span4(type="text", name="name")
         

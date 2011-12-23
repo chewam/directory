@@ -3,11 +3,25 @@ html
     head
         title= title
 
-        link(rel='stylesheet', href='http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
 
-        script(charset="utf-8", src='/javascripts/raphael-min.js')
+        script(charset="utf-8", src='http://maps.googleapis.com/maps/api/js?sensor=false')
+        script(charset="utf-8", src='/javascripts/lib/raphael.js')
+        script(charset="utf-8", src='/javascripts/lib/jquery.js')
+        script(charset="utf-8", src='/javascripts/lib/modal.js')
+
+        script(charset="utf-8", src='/javascripts/googlemap.js')
         script(charset="utf-8", src='/javascripts/map.js')
+        script(charset="utf-8", src='/javascripts/index.js')
+
+        - if (items)
+            - var coords = []
+            - for (var i = 0, l = items.length; i < l; i++)
+                - coords.push('{lat: ' + items[i].get('lat') + ', lng: ' + items[i].get('lng') + '}')
+
+            script
+                var coords = [#{coords.join(',')}];
 
         // script(charset="utf-8", src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
         // script(charset="utf-8", src='http://cloud.github.com/downloads/SteveSanderson/knockout/jquery.tmpl.min.js')
@@ -18,7 +32,7 @@ html
         // script(charset="utf-8", src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js")
         // script(charset="utf-8", src="/javascripts/index.js")
 
-    body
+    body(onload="googlemap.initialize()")
   
         div.topbar
             div.topbar-inner
@@ -36,10 +50,11 @@ html
             div.container.page
                 // h1 #{title}
                 // h1= title
-                h2 Bienvenue sur CONCESSIONNAIRES-AUTOMOBILE.FR
-                h4 Sur CONCESSIONNAIRES-AUTOMOBILE.FR trouvez les #{title.toLowerCase()} près de chez vous !
+                header
+                    h2 CONCESSIONNAIRES AUTOMOBILE EN FRANCE
+                    h4 Sur CONCESSIONNAIRES-AUTOMOBILE.FR trouvez les #{title.toLowerCase()} près de chez vous !
 
-                include form
+                    include form
 
                 != body
 

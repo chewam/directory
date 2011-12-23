@@ -1,15 +1,81 @@
-body {
-    padding-top: 60px;
+h3 {
+    font-size: 20px;
+}
+
+address {
+    margin-bottom: 0;
+}
+
+.topbar h1 {
+    margin-bottom: 0;
+}
+
+.topbar h1:after {
+    clear: both;
+}
+
+header h2 {
+    font-size: 36px;
+}
+
+header h2, header h4 {
+    text-align: center;
+}
+
+header h4 {
+    color: #606060;
 }
 
 #map-canvas {
-    left: -30px;
-    position: relative;
-    top: -10px;
+    width: 500px;
+    height: 550px;
+}
+
+.content {
+    background-color: #EFEFEF;
+}
+
+.container.page {
+    background-color: #FFF;
+    padding: 60px 20px 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0px 1px 15px -9px #000000;
+}
+
+.form {
+    padding: 0;
+    margin-top: 20px;
+    border: 1px solid #BBBBBB;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) inset;
+    background-color: #049CD9;
+    background-image: -moz-linear-gradient(#004D9F, #049CD9);
+}
+
+.form h2 {
+    color: #FFF;
+    font-size: 24px;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.form .row {
+    padding: 19px;
+    background: url('/images/form-background.png') repeat scroll center top transparent;
 }
 
 form, .actions {
     margin-bottom: 0;
+}
+
+.form form {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 20px 0 0;
+    box-shadow: 0px 1px 15px -6px #000000;
+}
+
+.form form .actions {
+    border-radius: 0 0 5px 5px;
 }
 
 button.search {
@@ -17,4 +83,39 @@ button.search {
     left: -80px;
     padding: 7px 30px 6px;
     position: relative;
+}
+
+.well.item {
+    padding: 6px;
+}
+
+.well.item h3 {
+    min-height: 45px;
+    margin: 5px 0;
+    line-height: 22px;
+    text-shadow: 1px 1px #FFFFFF;
+}
+
+#googlemap-canvas {
+    width: 98%;
+    padding: 4px;
+    height: 641px;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.row .tel {
+/*    font-size: 20px;*/
+    margin-left: -5px;
+/*    padding-left: 45px;*/
+    padding-top: 4px;
+    position: absolute;
+/*    text-shadow: 1px 1px #FFFFFF;*/
+/*    background: url('http://cdn1.iconfinder.com/data/icons/iconsweets2/40/phone_telephone_call.png') no-repeat scroll 0 0 transparent;*/
+}
+
+.modal-body {
+    font-size: 24px;
+    text-align: center;
 }

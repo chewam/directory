@@ -1,29 +1,13 @@
 div.row
+    div.span16
+        include pagination
 
-    div.span9
 
-        div.pagination
-            ul
-                - var startPage = currentPage - 2 > 0 ? pageCount - currentPage + 2 > pageSize ? currentPage - 2 : currentPage - 4 : 1
-                - var endPage = startPage + pageSize > pageCount ? pageCount : startPage + pageSize
-                - if (currentPage - 1 > 2)
-                    li.prev: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(currentPage-1)+".html") &larr; Précédent
-                - else
-                    li.prev.disabled: a &larr; Précédent
-                - for (var i = startPage; i < endPage; i++)
-                    - if (i == currentPage)
-                        li.active: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
-                    - else
-                        li: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
-                - if (currentPage + 1 < pageCount)
-                    li.next: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(1 + currentPage)+".html") Suivant &rarr;
-                - else
-                    li.next.disabled: a Suivant &rarr;
-    
-        - var item;
+    div.span8
+        - var item, letter;
         - for (var i = 0; i < count; i++)
             - item = items[i]
-            div.well
+            div.well.item
                 div.row
 
                     div.span2
@@ -31,31 +15,39 @@ div.row
                             a(href="#", style="margin-bottom: 0;")
                                 img.thumbnail(src="http://placehold.it/90x90", alt="", height="90px", width="90px")
 
-                    div.span6
-                        h3: a(href="#") #{item.name}
-                        div #{item.address}
-                        div
-                            a(href="#") #{item.city} 
-                            |(
-                            a(href="#") #{item.citycode}
-                            | &nbsp;)
+                    - letter = String.fromCharCode("A".charCodeAt(0) + i)
+                    - letter = 'http://maps.google.com/mapfiles/marker'+ letter +'.png'
+                    div.span5
+                        address
+                            h3: a(href="#") #{item.name}
+                            div.row
+                                div.span3
+                                    div(style="padding-left: 30px; background: url('#{letter}') no-repeat scroll 0 0 transparent;")
+                                        div #{item.address}
+                                        div
+                                            a(href="#") #{item.city} 
+                                            |(
+                                            a(href="#") #{item.citycode}
+                                            | &nbsp;)
+                                div.span4.tel
+                                    a.btn.success(onclick="showNumber('#{item.get('id')}', '#{item.get('name')}')") AFFICHER LE NUMERO
+                                    // abbr Tel: 
+                                    // #{item.get('tel')}
 
-        div.pagination
-            ul
-                - var startPage = currentPage - 2 > 0 ? pageCount - currentPage + 2 > pageSize ? currentPage - 2 : currentPage - 4 : 1
-                - var endPage = startPage + pageSize > pageCount ? pageCount : startPage + pageSize
-                - if (currentPage - 1 > 2)
-                    li.prev: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(currentPage-1)+".html") &larr; Précédent
-                - else
-                    li.prev.disabled: a &larr; Précédent
-                - for (var i = startPage; i < endPage; i++)
-                    - if (i == currentPage)
-                        li.active: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
-                    - else
-                        li: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
-                - if (currentPage + 1 < pageCount)
-                    li.next: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(1 + currentPage)+".html") Suivant &rarr;
-                - else
-                    li.next.disabled: a Suivant &rarr;
+    div.span8
+        div#googlemap-canvas
 
-    div.span7
+    div.span16
+        include pagination
+
+
+div#number-modal.modal.fade.hide
+    div.modal-header
+        a.close ×
+        h3 Téléphone
+
+    div.modal-body
+        strong 08 99 34 56 32
+
+    div.modal-footer
+        a.btn.secondary Fermer

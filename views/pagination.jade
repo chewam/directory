@@ -1,0 +1,17 @@
+div.pagination
+    ul
+        - var startPage = currentPage - 2 > 0 ? pageCount - currentPage + 2 > pageSize ? currentPage - 2 : currentPage - 4 : 1
+        - var endPage = startPage + pageSize > pageCount ? pageCount : startPage + pageSize
+        - if (currentPage - 1 > 2)
+            li.prev: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(currentPage-1)+".html") &larr; Précédent
+        - else
+            li.prev.disabled: a &larr; Précédent
+        - for (var i = startPage; i < endPage; i++)
+            - if (i == currentPage)
+                li.active: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
+            - else
+                li: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+i+".html") #{i}
+        - if (currentPage + 1 < pageCount)
+            li.next: a(href="http://localhost:3001/concessionnaires/departement/paris,75,"+(1 + currentPage)+".html") Suivant &rarr;
+        - else
+            li.next.disabled: a Suivant &rarr;
