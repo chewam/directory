@@ -1,4 +1,4 @@
-window.onload = function() {
+var francemap = function() {
 
     var attr, state, path,
         text, x, y, data, paper, code,

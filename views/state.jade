@@ -22,7 +22,7 @@ div.row
                             h3: a(href="#") #{item.name}
                             div.row
                                 div.span3
-                                    div(style="padding-left: 30px; background: url('#{letter}') no-repeat scroll 0 0 transparent;")
+                                    div.address(style="background: url('#{letter}') no-repeat scroll 0 0 transparent;")
                                         div #{item.address}
                                         div
                                             a(href="#") #{item.city} 
@@ -47,7 +47,11 @@ div#number-modal.modal.fade.hide
         h3 Téléphone
 
     div.modal-body
-        strong 08 99 34 56 32
+        strong: a 08 99 34 56 32
 
     div.modal-footer
-        a.btn.secondary Fermer
+        div.row
+            div.span6
+                div.info Ce numero en 08 acheminera votre appel vers la mutuelle. Ce numéro est encore actif pendant 40s
+            div.span3
+                a.btn.secondary Fermer

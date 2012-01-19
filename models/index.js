@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1/directory');
+mongoose.connect('mongodb://127.0.0.1/directory2');
 
 
 var mapSchema = new mongoose.Schema({
@@ -10,6 +10,7 @@ var mapSchema = new mongoose.Schema({
 });
 
 var Map = mongoose.model('Map', mapSchema);
+
 
 var cityStatSchema = new mongoose.Schema({
     citycode: String,

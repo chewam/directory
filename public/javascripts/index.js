@@ -13,3 +13,8 @@ var showNumber = function(id, name) {
     }
     showCount++;
 };
+
+$(function() {
+    francemap();
+    googlemap.initialize();
+});

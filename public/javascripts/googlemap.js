@@ -12,8 +12,8 @@ var googlemap = (function() {
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(el, myOptions);
+            addMarkers();
         }
-        addMarkers();
     }
 
     function addMarkers() {
